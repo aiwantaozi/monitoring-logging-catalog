@@ -12,8 +12,8 @@ services:
     volumes:
     - /run/log/journal:/run/log/journal
     {{- end }}
-    external_links:
-    - ${elasticsearch_source}:elasticsearch
+    links:
+    - elasticsearch:elasticsearch
     volumes_from:
     - logging-helper
     labels:
@@ -44,3 +44,5 @@ services:
       options:
         max-size: 25m
         max-file: '2'
+  elasticsearch:
+    image: rancher/external-service
