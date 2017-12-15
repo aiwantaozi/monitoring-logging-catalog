@@ -30,8 +30,3 @@
       label: "Elasticsearch address"
       type: "string"
       required: true
-services:
-  elasticsearch:
-    external_ips:
-    - ${elasticsearch_address}
-    start_on_create: true
