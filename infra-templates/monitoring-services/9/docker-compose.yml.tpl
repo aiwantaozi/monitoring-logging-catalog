@@ -47,11 +47,9 @@ services:
       io.rancher.container.create_agent: 'true'
       io.rancher.container.agent.role: environment
       io.rancher.scheduler.global: 'true'
+      io.rancher.sidekicks: black-box-config
     image: {{  .Values.RANCHER_BLACK_BOX_IMAGES }}
     command: --config.file=/config/blackbox.yaml
-    labels:
-      io.rancher.sidekicks: black-box-config
-      io.rancher.container.pull_image: always
     ports:
     - {{  .Values.RANCHER_BLACK_BOX_PORT }}:9115
     volumes_from:
